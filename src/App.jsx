@@ -25,12 +25,17 @@ class App extends Component {
         ],
     };
 
+    saveChanges = () => {
+        const user = this.state.users.find((user) => data.id == user.id);
+        console.log(user);
+    };
+
     render () {
         const { users } = this.state;
 
     return( 
         <div className="container">
-            <Users users={users} />
+            <Users users={users} onSave={this.saveChanges}/>
         </div>
         );
     }

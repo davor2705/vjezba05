@@ -5,7 +5,7 @@ export default class Users extends Component {
     //users = this.props.users;
 
     render() {
-        const { users } = this.props;
+        const { users, onSave } = this.props;
         return (
             <table className="table table-striped">
                 <thead>
@@ -17,7 +17,14 @@ export default class Users extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, index) => (<User user={user} key={user.id} index={index +1} />))}
+                    {users.map((user, index) => (
+                    <User 
+                    user={user} 
+                    key={user.id} 
+                    index={index +1} 
+                    onSave={onSave}
+                    />
+                    ))}
                 </tbody>
             </table>
         );
