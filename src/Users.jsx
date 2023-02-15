@@ -1,5 +1,5 @@
 import { Component } from "react";
-import User from './User';
+import User from "./User";
 
 export default class Users extends Component {
     //users = this.props.users;
@@ -18,12 +18,12 @@ export default class Users extends Component {
                 </thead>
                 <tbody>
                     {users.map((user, index) => (
-                    <User 
-                    user={user} 
-                    key={user.id} 
-                    index={index +1} 
-                    onSave={onSave}
-                    />
+                        <User
+                            user={user}
+                            key={user.id}
+                            index={index + 1}
+                            onSave={onSave}
+                        />
                     ))}
                 </tbody>
             </table>

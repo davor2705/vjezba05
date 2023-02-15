@@ -1,35 +1,43 @@
 import { Component } from "react";
 
 export default class EditForm extends Component {
-    
-        state = {
-            value: this.props.text,
-            id: this.props.id
-        }
+    state = {
+        text: this.props.text,
+        id: this.props.id,
+    };
 
-        handleOnChange = (e) => {
-                this.setState({text: e.target.value});
-        }
+    handleOnChange = (e) => {
+        this.setState({ text: e.target.value });
+    };
 
-        sendData = () => {
-            this.props.onSave(this.state);
-        }
+    sendData = (e) => {
+        const type = e.target.dataset.type
+        this.props.onSave(this.state, type);
+    };
 
-        render() {
-
-        const {text} = this.state;
-        const {onCancel} = this.props;
+    render() {
+        const { text } = this.state;
+        const { onCancel, type } = this.props;
 
         return (
-                <div className="input-group"> 
-                    <input type="text" 
-                    value={text} 
-                    className="form-control" 
+            <div className="input-group">
+                <input
+                    type="text"
+                    value={text}
+                    className="form-control"
                     onChange={this.handleOnChange}
-                    />
-                    <button data-type={type} className="btn btn-success btn-sm" onClick={onSave (this.sendData)}>&#10003;</button>
-                    <button className="btn btn-danger btn-sm" onClick={onCancel}>X</button>
-                </div>
-            )
+                />
+                <button
+                    data-type={type}
+                    className="btn btn-success btn-sm"
+                    onClick={this.sendData}
+                >
+                    &#10003;
+                </button>
+                <button className="btn btn-danger btn-sm" onClick={onCancel}>
+                    X
+                </button>
+            </div>
+        );
     }
 }

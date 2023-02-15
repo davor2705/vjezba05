@@ -1,4 +1,4 @@
-import { Component, useReducer } from "react";
+import { Component } from "react";
 import EditForm from "./EditForm";
 
 export default class User extends Component {
@@ -26,7 +26,7 @@ export default class User extends Component {
 
         return (
             <tr>
-                <td>{index}</td>
+                <td>{index}.</td>
                 <td>
                     {!isEditName && (
                         <span
@@ -37,7 +37,15 @@ export default class User extends Component {
                         </span>
                     )}
 
-                    {isEditName && <EditForm value={user.ime} id={user.id} onCancel={this.handleChangeEditName} />}
+                    {isEditName && (
+                        <EditForm
+                            text={user.ime}
+                            id={user.id}
+                            type="ime"
+                            onCancel={this.handleChangeEditName}
+                            onSave={onSave}
+                        />
+                    )}
                 </td>
                 <td>
                     {!isEditSurname && (
