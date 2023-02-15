@@ -25,6 +25,10 @@ class App extends Component {
         ],
     };
 
+    componentDidUpdate = () => {
+        // poslati podatke iz statea na spremanju u bazu podataka,
+    }
+
     saveChanges = (data, type) => {
         const { users } = this.state;
 
